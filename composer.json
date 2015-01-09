@@ -1,0 +1,27 @@
+{
+  "name": "justinatack/deleteable",
+  "version": "0.0.1",
+  "description": "Detects which database records can be deleted. Database records can be locked preventing deletion.",
+  "type": "cakephp-plugin",
+  "keywords": [
+    "cakephp"
+  ],
+  "homepage": "https://github.com/justinatack/deleteable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Justin Atack",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "composer/installers": "*"
+  },
+  "support": {
+    "issues": "https://github.com/justinatack/deleteable/issues",
+    "source": "https://github.com/justinatack/deleteable"
+  },
+  "extra": {
+    "installer-name": "Deleteable"
+  }
+}
