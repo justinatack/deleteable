@@ -62,17 +62,19 @@ git clone git://github.com/justinatack/deleteable.git Deleteable
 
 * In 2.x you need to enable the plugin your `app/Config/bootstrap.php` file. If you are already using `CakePlugin::loadAll();`, then the following is not necessary.:
 ```php
-		CakePlugin::load('Deleteable');
+CakePlugin::load('Deleteable');
 ```
 * Include the Deleteable behavior in your `app/Model/AppModel.php`:
 ```php
 class AppModel extends Model
 {
-    public $actsAs = array('Deleteable.Deleteable', array(
-        'field' => 'delete',
-        'boolean' => false
-        )
-    );
+    public $actsAs = array(
+        'Deleteable.Deleteable',
+            array(
+                'field' => 'delete',
+                'boolean' => false
+            )
+        );
 }
 ```
 * Set `field` to your database field name that you want checked by the DeleteableBehavior. Default field is set to "delete". Make sure you create a TINYINT(1) field type in MySQL.
@@ -94,6 +96,6 @@ requests](https://help.github.com/articles/using-pull-requests) or open
 
 ## Versions
 
-Deleteable has only had one release. Please feel free to submit a pull request to add or improve the codebase.
+Deleteable has only one release so far. Please feel free to submit a pull request to add or improve the codebase.
 
 * '0.0.1' a working patch, the code base may well change.
