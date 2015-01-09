@@ -66,16 +66,18 @@ git clone git://github.com/justinatack/deleteable.git Deleteable
 ```
 * Include the Deleteable behavior in your `app/Model/AppModel.php`:
 ```php
-class AppModel extends Model {
-				 public $actsAs = array('Deleteable.Deleteable', array(
-             'field' => 'delete',
-             'boolean' => false
-				     )
-				 );
+class AppModel extends Model
+{
+    public $actsAs = array('Deleteable.Deleteable', array(
+        'field' => 'delete',
+        'boolean' => false
+        )
+    );
 }
 ```
-* Set `field` to your database field name that your want checked. Default field is "delete". Make sure you create a TINYINT(1) field type in MySQL.
+* Set `field` to your database field name that you want checked by the DeleteableBehavior. Default field is set to "delete". Make sure you create a TINYINT(1) field type in MySQL.
 * Set the 'boolean' value to false for default behavior or use true to flip the behavior.
+* By default a boolean value of '0' will prevent a record from being deleted. A value of '1' will allow a record to be deleted. Set 'boolean' to 'true' to invert this behavior.
 
 ## Reporting Issues
 
@@ -92,6 +94,6 @@ requests](https://help.github.com/articles/using-pull-requests) or open
 
 ## Versions
 
-Deleteable has only had one release. Please feel free to submit a pull request to add or improve codebase.
+Deleteable has only had one release. Please feel free to submit a pull request to add or improve the codebase.
 
 * '0.0.1' a working patch, the code base may well change.
