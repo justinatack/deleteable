@@ -1,6 +1,6 @@
-# Deleteable
+# DeleteableBehavior
 
-Deleteable provides a debugging toolbar and enhanced debugging tools for CakePHP applications.
+Deleteable provides a way to flag a database record as deleteable or not deleteable. I created this CakePHP Behavior with the need to be able to set a tinyint(1) "delete" field in my database and set it to true or false (0 or 1). The plugin is flexible, you can set your own field name as long as it stores a boolean value. You can also specify the value on which the delete is blocked or not. So you could have the DeleteableBehavior work when it's true and not when false (default behavior is false). The reason you might want to do this when you name your Deletable field to say "locked" and hence you might want to have "locked" field set to 1 (or true), in other words "locked" records can not be deleted because they are "locked" = true.
 
 ## Requirements
 
