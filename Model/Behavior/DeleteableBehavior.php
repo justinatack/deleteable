@@ -23,52 +23,51 @@ class DeleteableBehavior extends ModelBehavior
     /**
      * Configuration of model
      *
-     * @param Model $Model
+     * @param Model $model
      * @param array $settings
      * @return void
      */
-    public function setup(Model $Model, $settings = array())
+    public function setup(Model $model, $settings = array())
     {
-        if (!isset($this->settings[$Model->alias])) {
-            $this->settings[$Model->alias] = array(
+        if (!isset($this->settings[$model->alias])) {
+            $this->settings[$model->alias] = array(
                 'field' => 'delete',
                 'boolean' => false
             );
         }
-        $this->settings[$Model->alias] = array_merge(
-            $this->settings[$Model->alias],
+        $this->settings[$model->alias] = array_merge(
+            $this->settings[$model->alias],
             (array)$settings
         );
     }
 
     /**
      * isDeleteable
-     * @param Model  $Model
+     * @param Model  $model
      * @return boolean
      */
-    public function isDeleteable($Model)
+    public function isDeleteable($model)
     {
-        $boolean = $this->settings[$Model->alias]['boolean'];
-        $field = $this->settings[$Model->alias]['field'];
+        $field = $this->settings[$model->alias]['field'];
+        $boolean = $this->settings[$model->alias]['boolean'];
 
-        $find = $Model->find('first', ['conditions' => [$Model->primaryKey => $Model->id]]);
+        $find = $model->find('first', ['conditions' => [$model->primaryKey => $model->id]]);
 
-        if (isset($find[$Model->alias][$field])) {
-            return $find[$Model->alias][$field] != $boolean;
+        if (isset($find[$model->alias][$field])) {
+            return $find[$model->alias][$field] != $boolean;
         }
 
         return true;
-
     }
 
     /**
      * beforeDelete
-     * @param  Model   $Model
+     * @param  Model   $model
      * @param  boolean $cascade
      * @return boolean
      */
-    public function beforeDelete(Model $Model, $cascade = true)
+    public function beforeDelete(Model $model, $cascade = true)
     {
-        return $this->isDeleteable($Model);
+        return $this->isDeleteable($model);
     }
 }
